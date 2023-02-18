@@ -50,4 +50,37 @@ function onStart() {
     addRule('L,l', '!');
 }
 
-window.onstart = onStart();
+window.onStart = onStart();
+
+$(function() {
+    $('#leetrules').on('click', 'button', function() {
+        var $this = $(this).closest('.leetrule');
+        $this.remove();
+    });
+});
+
+function leetify(str, obj) {
+    let newStr = str;
+    for (var key in obj) {
+        if (!obj.hasOwnProperty(key)) {
+            continue;
+        }
+        newStr = newStr.replaceAll(key, obj[key]);
+    } 
+    return newStr   
+}
+
+function compose() {
+    result = {};
+    const leetrules = document.getElementsByClassName('leetrule');
+    Object.values(leetrules).forEach((rule, index) => {
+        if (rule.children[0].children[0].checked = true) {
+            rule.children[0].children[2].value.replaceAll(' ','').split(',').forEach(item => {
+                result[item] = rule.children[0].children[4].value;
+            });
+        }
+    });
+    replacing = document.getElementById('replacing');
+    replacing.value = leetify("Placeholder-For-Password", result);
+    console.log(JSON.stringify(result, null, 4));
+}

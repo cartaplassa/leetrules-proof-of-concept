@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 2rem;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+#leetrules {
+    margin-top: 2rem;
+}
+
+.leetrule-add {
+    margin-bottom: 2rem;
+}
+
+#replacing {
+    display: block;
+}
